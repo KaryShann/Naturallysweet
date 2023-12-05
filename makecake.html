@@ -41,12 +41,14 @@
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item"><a href="index.html"><i class="fa-solid fa-cake-candles"></i>
                                     Home</a></li>
-                            <li class="list-inline-item"><a href="makecake.html"><i
-                                        class="fa-solid fa-wand-magic-sparkles"></i> Make your cake</a></li>
+                            <li class="list-inline-item" style="color: gray;"><i
+                                        class="fa-solid fa-wand-magic-sparkles"></i> Make your cake</li>
                             <li class="list-inline-item"><a href="howplay.html"><i class="fa-solid fa-kitchen-set"></i>
                                     How to Play</a></li>
                             <li class="list-inline-item"><a href="game.html"><i class="fa-solid fa-burst"></i> Game</a>
-                                <i class="fa-solid fa-bag-shopping fa-beat"></i> cart</a></li>
+
+                      <li class="list-inline-item"><a href="cart.html">
+                          <i class="fa-solid fa-bag-shopping"></i> cart</a></li>
                             </li>
                         </ul>
                     </nav>
@@ -56,14 +58,14 @@
     </header>
 
     <main>
-        <div class="container-fluid">
+        <div class="container-fluid py-5">
             <div class="row">
                 <div class="col-md-6 form-section">
                     <div class="welcome-text-container">
                         <h2>Customize Your Cake</h2>
                     </div>
                     <!-- Cake Customization Form -->
-                    <form>
+                    <form style="padding: 20px; background: rgb(255 255 255 / 50%); margin-top: 20px; border-radius: 10px;">
                         <!-- Customer Name -->
                         <div class="form-group">
                             <label for="cakeMessage">Message on Cake (max 20 letters)</label>
@@ -122,24 +124,24 @@
                         <!-- Special Dietary Requirements -->
                         <div class="form-group">
                             <label for="dietaryRequirements">Special Dietary Requirements</label><br>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="glutenFree">
+                            <div class="form-check" style="text-align: left;">
+                                <input class="form-check-input" type="checkbox" id="glutenFree" style="border: 2px solid black;">
                                 <label class="form-check-label" for="glutenFree">Gluten-Free</label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="nutFree">
+                            <div class="form-check" style="text-align: left;">
+                                <input class="form-check-input" type="checkbox" id="nutFree" style="border: 2px solid black;">
                                 <label class="form-check-label" for="nutFree">Nut-Free</label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="soyFree">
+                            <div class="form-check" style="text-align: left;">
+                                <input class="form-check-input" type="checkbox" id="soyFree" style="border: 2px solid black;">
                                 <label class="form-check-label" for="soyFree">Soy-Free</label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="dairyFree">
+                            <div class="form-check" style="text-align: left;">
+                                <input class="form-check-input" type="checkbox" id="dairyFree" style="border: 2px solid black;">
                                 <label class="form-check-label" for="dairyFree">Dairy-Free (Vegan)</label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="sugarFree">
+                            <div class="form-check" style="text-align: left;">
+                                <input class="form-check-input" type="checkbox" id="sugarFree" style="border: 2px solid black;">
                                 <label class="form-check-label" for="sugarFree">Sugar-Free</label>
                             </div>
                         </div>
@@ -147,7 +149,12 @@
                         <!-- Cake Size Slider -->
                         <div class="form-group">
                             <label for="cakeSize">Cake Size</label>
-                            <input type="range" class="form-control-range" id="cakeSize" min="1" max="3" step="1"
+                            <input type="range"
+                                   class="form-control-range"
+                                   id="cakeSize"
+                                   min="1"
+                                   max="3"
+                                   step="1"
                                 onchange="updateCakeImage()">
                         </div>
 
@@ -170,9 +177,7 @@
                 </div>
                 <div class="col-md-6">
                     <h2>Your Selection</h2>
-                    <div id="selectionDetails">
-                        <!-- Selected options will be displayed here -->
-                    </div>
+                    <div id="selectionDetails"/>
                 </div>
             </div>
         </div>
@@ -289,9 +294,9 @@
         }
     }
 </script>
-        
+
     </script>
-     
+
     </script>
 </body>
 

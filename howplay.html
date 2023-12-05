@@ -40,9 +40,9 @@
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item"><a href="index.html"><i class="fa-solid fa-cake-candles"></i> Home</a></li>
                         <li class="list-inline-item"><a href="makecake.html"><i class="fa-solid fa-wand-magic-sparkles"></i> Make your cake</a></li>
-                        <li class="list-inline-item"><a href="howplay.html"><i class="fa-solid fa-kitchen-set"></i> How to Play</a></li>
+                        <li class="list-inline-item" style="color: gray;"><i class="fa-solid fa-kitchen-set"></i> How to Play</li>
                         <li class="list-inline-item"><a href="game.html"><i class="fa-solid fa-burst"></i> Game</a></li>
-                        <li class="list-inline-item"><a href="cart.html"><i class="fa-solid fa-bag-shopping fa-beat"></i> cart</a></li>
+                        <li class="list-inline-item"><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i> cart</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -191,11 +191,11 @@
                 name: "Player One",
                 number: 1,
                 abilities: [
-                  
+
                     { thumbnail: "LemonCake", details: ["Tangy zest", "Refreshing presence", "Versatile adaptability"], image: "images/LemonCake.jpg" },
                     { thumbnail: "rainbowCake", details: ["Colorful Personality", "Harmony & Inclusivity:", "Symbol of Hope"], image: "images/rainbowCake.jpg" },
                     { thumbnail: "mintCake", details: ["Cool & refreshing", "Adaptive", "Soothing Presence"], image: "images/mintCake.jpg" },
-                    
+
                 ]
             };
 
@@ -234,7 +234,7 @@
 
         function selectAbility(image) {
             alert(`You selected: ${image}, good choice, now let's go shoot some cakes`);
-            
+
             // Redirect to game.html
             window.location.href = 'game.html';
         }
