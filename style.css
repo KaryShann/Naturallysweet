@@ -1,3 +1,5 @@
+/*Karina Shannon X23216760 & Ruth Woods X23174382, sources, google, youtube, NCI notes, Images = https://unsplash.com/s/photos/cakes*/
+
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap'); /* Example font import */
 
@@ -6,8 +8,7 @@ body {
     padding: 0px;/* We dont want a gap about the page */
     font-family: Arial, sans-serif;/* Set font family */
     background-color: #f4f4f4;/* Set background color */
-    background-image: url('../images/background.jpg');/* Set background image */  
-    background-size: 60%;/* Set background image size */
+    background-image: url('images/background.jpg');/* Set background image */      background-size: 60%;/* Set background image size */
     background-position: center;/* Set background image position */
     text-align: center;/* Center text */
     display: flex;/* Set display to flex */
@@ -17,6 +18,7 @@ body {
     background-color: rgba(0, 0, 255, 0.562); 
     padding: 20px; /* Add padding for better visual appeal */
     border-radius: 10px; /* Optional: Add border-radius for rounded corners */
+    justify-content: center;
 }
 
 /* Additional styling for the text */
@@ -69,16 +71,13 @@ h1 {
     align-items: center;/* Center items */
     justify-content: center;/* Center items */
     min-height: 0px;/* Set minimum height */
+    font: white
    }
 .ability-card {
     height: 350px; /* Adjust this value based on your preference */
     background-color: pink;/* Set background color */
 }
 
-.ability-thumbnail {
-    height: 150px; /* Adjust this value based on your preference */
-    object-fit: cover;/* Set object-fit */
-}
 .container2{
    width: 800px;/* Set the width according to your preference */
     height: 100%;/* Set the height according to your preference */
@@ -127,22 +126,13 @@ img.squ {
     color: #76A977; /* Color change on hover */
     font-style: italic; /* Makes text italic on hover */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.ability-image {
+    width: 100px; /* Set your desired width */
+    height: 100px; /* Set your desired height */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+    display: block; /* Center the image within its container */
+    margin: 0 auto; /* Center the image horizontally */
+}
 #game-container {
     position: relative;
     width: 100vw;
@@ -213,4 +203,8 @@ img.squ {
     font-size: 48px; /* Larger font size */
     color: red;
     text-shadow: 3px 3px 4px black; /* Black drop shadow */
+}
+.card-img-fixed-height {
+    height: 200px; /* Adjust the height as needed */
+    object-fit: cover; /* This ensures the image covers the entire box */
 }

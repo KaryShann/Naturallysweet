@@ -1,3 +1,6 @@
+<!--Karina Shannon X23216760-->
+
+
 var gameContainer = document.getElementById('game-container');
 var timerElement = document.getElementById('timer');
 

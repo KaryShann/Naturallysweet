@@ -1,3 +1,5 @@
+<!--Ruth Woods X23174382, sources, google, youtube, NCI notes,Images https://unsplash.com/s/photos/cakes-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +21,7 @@
 <body>
 
    <!-- Header Section from index.html -->
-<header class="custom-header py-3">
+<header class="custom-header py-5">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-4">
@@ -34,6 +36,8 @@
                         <li class="list-inline-item"><a href="makecake.html"><i class="fa-solid fa-wand-magic-sparkles"></i> Make your cake</a></li>
                         <li class="list-inline-item"><a href="howplay.html"><i class="fa-solid fa-kitchen-set"></i> How to Play</a></li>
                         <li class="list-inline-item"><a href="game.html"><i class="fa-solid fa-burst"></i> Game</a></li>
+                        <li class="list-inline-item"><a href="cart.html"><i class="fa-solid fa-bag-shopping fa-beat"></i> cart</a></li>
+                        
                     </ul>
                 </nav>
             </div>
@@ -47,8 +51,8 @@
     <section class="main-content py-5">
         <div class="container">
             <div class="welcome-text-container">
-            <h2 class="text-center">Welcome to little online shop</h2>
-            <p class="lead text-center">We create delightful cakes for every occasion, whether it's a birthday, Christmas, wedding, christening, or any special event. Choose from our variety of sizes to make your celebration memorable.</p>
+            <h2 class="text-center">Welcome to our little online shop</h2>
+            <p class="lead text-center">We create delightful cakes for every occasion, whether it's a birthday, Christmas, wedding, christening, or any special event. Choose from our variety of sizes to make your celebration memorable.  Below are our buy now cakes but if you would prefer to make your own - we can do that as well</p>
             </div>
 
             <div class="row mt-4">
@@ -72,11 +76,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- Repeat the structure for other cakes -->
-                <!-- Cake 2 -->
+        <!--Cake 1-->
                 <div class="col-md-3">
                     <div class="card">
-                        <img src="images/xmasCake.jpg" alt="Cake 2" class="card-img-top img-fluid squ">
+                        <img src="images/xmasCake.jpg" alt="Cake 2" class="card-img-top img-fluid squ card-img-fixed-height">
                         <div class="card-body">
                             <p class="card-text">Festive Holiday Cake</p>
                             <p class="card-text"><strong>Description:</strong> Spread holiday cheer with this festive cake.</p>
@@ -88,7 +91,7 @@
                                 </select>
                             </p>
                             <p class="card-text"><strong>Prices:</strong> &euro;<span id="cake2-price"></span></p>
-                            <p class="card-text"><strong>Details:</strong> Seasonal flavors, colorful decoration, and joy in every bite.</p>
+                            <p class="card-text"><strong>Details:</strong> Seasonal flavors, colorful decoration, and joy in every bite.<br></p>
                             <a class="btn btn-primary" onclick="alert('Cart: xmasCake')">Add to Cart</a>
                         </div>
                     </div>
@@ -96,10 +99,10 @@
                 <!-- Cake 3 -->
                 <div class="col-md-3">
                     <div class="card">
-                        <img src="images/weddingCake.jpg" alt="Cake 3" class="card-img-top img-fluid squ">
+                        <img src="images/weddingCake.jpg" alt="Cake 3" class="card-img-top img-fluid squ card-img-fixed-height">
                         <div class="card-body">
                             <p class="card-text">Elegant Wedding Cake</p>
-                            <p class="card-text"><strong>Description:</strong> Make your wedding day extra special with this elegant cake.</p>
+                            <p class="card-text"><strong>Description:</strong> Make your wedding day extra special with this cake.</p>
                             <p class="card-text"><strong>Sizes:</strong>
     <select class="form-select" aria-label="Pick a size" id="cake3">
         <option value="30">Small</option>
@@ -109,7 +112,7 @@
 </p>
 <p class="card-text"><strong>Prices:</strong> &euro;<span id="cake3-price"></span></p>
 
-                            <p class="card-text"><strong>Details:</strong> White tiers, floral decoration, and a taste of sophistication.</p>
+                            <p class="card-text"><strong>Details:</strong> Tiers, floral decoration, and a taste of sophistication.</p>
                             <a class="btn btn-primary" onclick="alert('Cart: weddingCake')">Add to Cart</a>
                         </div>
                     </div>
@@ -173,5 +176,6 @@ document.querySelectorAll('select')
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
 </body>
 </html>
