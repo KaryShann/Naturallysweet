@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Naturally Sweet</title>
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Naturally Sweet - Delicious Vegan Treats for Everyone">
+    <meta property="og:title" content="Welcome to Naturally Sweet">
+    <meta property="og:description" content="Explore a variety of vegan bakery delights from Naturally Sweet">
+    <meta property="og:image" content="path/to/image.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.naturallysweet.com">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"><!-- Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+   <!-- Header Section from index.html -->
+<header class="custom-header py-3">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <div class="logo">
+                    <h1 class="mb-1"><i class="fa-solid fa-cake-candles"></i> Naturally Sweet</h1>
+                </div>
+            </div>
+            <div class="col-md-8 text-md-end">
+                <nav>
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="index.html"><i class="fa-solid fa-cake-candles"></i> Home</a></li>
+                        <li class="list-inline-item"><a href="makecake.html"><i class="fa-solid fa-wand-magic-sparkles"></i> Make your cake</a></li>
+                        <li class="list-inline-item"><a href="howplay.html"><i class="fa-solid fa-kitchen-set"></i> How to Play</a></li>
+                        <li class="list-inline-item"><a href="game.html"><i class="fa-solid fa-burst"></i> Game</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <main>
+        
+
+
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 form-section">
+                <h2>Customize Your Cake</h2>
+                <!-- Cake Customization Form -->
+                <form>
+                    <!-- Customer Name -->
+                      <div class="form-group">
+    <label for="cakeMessage">Message on Cake (max 20 letters)</label>
+    <input type="text" class="form-control" id="cakeMessage" placeholder="Enter your message" maxlength="20" onblur="validateMessageLength()">
+    <div class="invalid-feedback">Message cannot exceed 20 letters.</div>
+</div>
+
+<!-- Error Alert, initially hidden -->
+<div class="alert alert-danger alert-dismissible fade show" id="errorAlert" style="display:none;">
+    <strong>Error!</strong> Your message cannot exceed 20 letters.
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+
+                    <!-- Cake Flavor -->
+                    <div class="form-group">
+                        <label for="cakeFlavor">Cake Flavor</label>
+                        <select class="form-control" id="cakeFlavor">
+                            <option>Vanilla</option>
+                            <option>Chocolate</option>
+                            <option>Strawberry</option>
+                            <option>Lemon</option>
+                        </select>
+                    </div>
+
+                    <!-- Frosting Type -->
+                    <div class="form-group">
+                        <label for="frostingType">Frosting Type</label>
+                        <select class="form-control" id="frostingType">
+                            <option>Vanilla</option>
+                            <option>Chocolate</option>
+                            <option>Strawberry</option>
+                            <option>Lemon</option>
+                        </select>
+                    </div>
+
+                    <!-- Cake Shape -->
+                    <div class="form-group">
+                        <label>Cake Shape</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="cakeShape" id="round" value="round" checked>
+                            <label class="form-check-label" for="round">Round</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="cakeShape" id="square" value="square">
+                            <label class="form-check-label" for="square">Square</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="cakeShape" id="heart" value="heart">
+                            <label class="form-check-label" for="heart">Heart</label>
+                        </div>
+                    </div>
+
+                   <!-- Special Dietary Requirements -->
+<div class="form-group">
+    <label for="dietaryRequirements">Special Dietary Requirements</label><br>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="glutenFree">
+        <label class="form-check-label" for="glutenFree">Gluten-Free</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="nutFree">
+        <label class="form-check-label" for="nutFree">Nut-Free</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="soyFree">
+        <label class="form-check-label" for="soyFree">Soy-Free</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="dairyFree">
+        <label class="form-check-label" for="dairyFree">Dairy-Free (Vegan)</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="sugarFree">
+        <label class="form-check-label" for="sugarFree">Sugar-Free</label>
+    </div>
+</div>
+
+
+                    <!-- Cake Size Slider -->
+                    <div class="form-group">
+                        <label for="cakeSize">Cake Size</label>
+                        <input type="range" class="form-control-range" id="cakeSize" min="1" max="3" step="1">
+                    </div>
+
+                    <!-- Pick-up Date -->
+                    <div class="form-group">
+                        <label for="pickupDate">Pick-up Date</label>
+                        <input type="date" class="form-control" id="pickupDate">
+                    </div>
+
+                    <!-- Special Instructions -->
+                    <div class="form-group">
+                        <label for="specialInstructions">Special Instructions</label>
+                        <textarea class="form-control" id="specialInstructions" rows="3"></textarea>
+                    </div>
+
+                    <!-- Order Button -->
+                    <button type="button" class="btn btn-primary" onclick="alert('Your order has been placed')">Place Order</button>
+                </form>
+            </div>
+            <div class="col-md-6 image-section">
+                <h2>Your Cake Preview</h2>
+                <div class="image-placeholder">
+                    <img src="path_to_default_cake_image.jpg" alt="Cake Image" id="cakeImage">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="footer mt-5 py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">© 2023 Naturally Sweet</span>
+        </div>
+    </footer>
+    
+      <script>           
+        
+        // JavaScript function to validate the message length
+function validateMessageLength() {
+    var messageInput = document.getElementById('cakeMessage');
+    var errorAlert = document.getElementById('errorAlert');
+
+    if (messageInput.value.length > 20) {
+        // Show the error alert if the length is exceeded
+        errorAlert.style.display = 'block';
+        messageInput.classList.add('is-invalid');
+    } else {
+        // Hide the error alert and remove 'is-invalid' class if the length is within the limit
+        errorAlert.style.display = 'none';
+        messageInput.classList.remove('is-invalid');
+    }
+}
+
+            // JavaScript function to update the cake image based on the size selected
+        function updateCakeImage() {
+            var size = document.getElementById('cakeSize').value;
+            var image = document.getElementById('cakeImage');
+            
+            // Logic for changing the image source based on the selected size
+            switch(size) {
+                case '1':
+                    image.src = 'path_to_small_cake_image.jpg'; // Replace with actual path
+                    break;
+                case '2':
+                    image.src = 'path_to_medium_cake_image.jpg'; // Replace with actual path
+                    break;
+                case '3':
+                    image.src = 'path_to_large_cake_image.jpg'; // Replace with actual path
+                    break;
+                default:
+                    image.src = 'path_to_default_cake_image.jpg'; // Replace with actual path
+            }
+        }
+        // Initialize with default cake image
+        updateCakeImage();
+         </script>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

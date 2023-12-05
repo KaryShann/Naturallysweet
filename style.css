@@ -1,0 +1,216 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap'); /* Example font import */
+
+body {
+    margin: 0px;/* Set margin to 0 */
+    padding: 0px;/* We dont want a gap about the page */
+    font-family: Arial, sans-serif;/* Set font family */
+    background-color: #f4f4f4;/* Set background color */
+    background-image: url('../images/background.jpg');/* Set background image */  
+    background-size: 60%;/* Set background image size */
+    background-position: center;/* Set background image position */
+    text-align: center;/* Center text */
+    display: flex;/* Set display to flex */
+    flex-direction: column;/* Set flex direction to column */
+}
+.welcome-text-container {
+    background-color: rgba(0, 0, 255, 0.562); 
+    padding: 20px; /* Add padding for better visual appeal */
+    border-radius: 10px; /* Optional: Add border-radius for rounded corners */
+}
+
+/* Additional styling for the text */
+.welcome-text-container h2,
+.welcome-text-container p {
+    color: white; /* Set text color */
+}
+.custom-header {
+    background-color: #ffc0cb;/* Set background color */
+    font-size: large;/* Set font size */
+  }
+
+h1 {
+    color: #333;/* Set text color */
+    font-weight: 400;/* Set font weight */
+}
+
+.team {
+    background-color: #141414;/* Set background color */
+    border-radius: 5px;/* Set border radius */
+    padding: 20px;/* Add padding */
+    margin: 20px;/* Add margin */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);/* Add box shadow */
+}
+
+.team h2 {
+    margin-bottom: 20px;/* Add margin */
+    color: #333;/* Set text color */
+}
+
+.team ul {
+    list-style-type: none;/* Remove list style */
+    padding: 0;/* Remove padding */
+}
+
+.team li {
+    margin-bottom: 10px;/* Add margin */
+    color: #666;/* Set text color */
+}
+.text-center input {
+    margin: 0 auto;/* Add margin */
+    max-width: 800px; /* Adjust the max-width as needed */
+    text-align: center;/* Center text */
+}
+.card {
+    margin: 20px;/* Add margin */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);/* Add box shadow */
+}
+.container {
+    align-items: center;/* Center items */
+    justify-content: center;/* Center items */
+    min-height: 0px;/* Set minimum height */
+   }
+.ability-card {
+    height: 350px; /* Adjust this value based on your preference */
+    background-color: pink;/* Set background color */
+}
+
+.ability-thumbnail {
+    height: 150px; /* Adjust this value based on your preference */
+    object-fit: cover;/* Set object-fit */
+}
+.container2{
+   width: 800px;/* Set the width according to your preference */
+    height: 100%;/* Set the height according to your preference */
+    object-fit: cover;/* Set object-fit */
+    transform: scale(1.1);/* Adjust the scale value */
+    text-align: center;/* Center the text */
+    cursor: pointer;/* Set cursor style */
+    transition: transform 0.3s ease;/* Add transition */
+ }
+.cake-image {
+    max-width: 1150px; /* Set the maximum width according to your preference */
+    height: 90px; /* Maintain aspect ratio */
+}
+img.squ {
+    height: 250px;/* Adjust this value based on your preference */
+    object-fit: cover;/* Adjust this value based on your preference */
+}.custom-header {
+    background-color: #fff; /* Or any other color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    padding: 15px 0; /* Adjusts padding */
+    border-radius: 20px; /* Adds rounded corners */
+}
+
+.custom-header .logo h1 {
+    text-align: left;/* Aligns logo to the left */
+    margin-bottom: 0;/* Removes margin */
+    font-size: 1.75rem; /* Adjust the size as needed */
+    color: #76A977; /* Custom color for the brand name */
+}
+
+.custom-header nav ul {
+    text-align: right; /* Aligns menu items to the right */
+}
+
+.custom-header nav ul li {
+    margin-left: 20px; /* Space between menu items */
+}
+
+.custom-header nav ul li a {
+    color: #333; /* Menu item color */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    text-decoration: none; /* Removes underline from links */
+}
+
+.custom-header nav ul li a:hover {
+    color: #76A977; /* Color change on hover */
+    font-style: italic; /* Makes text italic on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;   
+     background-image: url('gamefiles/cake-by 38239486 from Pixabay.jpg');
+    background-size: cover; /* Ensures the background covers the entire container */
+    background-position: center; /* Centers the background image */
+
+}
+#game-logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: 'Roboto', sans-serif; /* Blocky, bold font */
+    font-weight: 900; /* Extra bold */
+    font-size: 48px;
+    color: #FFFFFF;
+    text-shadow: 
+        3px 3px 0px #000000,   /* Black shadow */
+        6px 6px 0px #FFFF00;   /* Yellow shadow */
+    /* Additional styling as needed */
+}
+.cake {
+    position: absolute;
+    bottom: 0;
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    cursor: pointer;
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-family: 'Arial', sans-serif; /* A standard, bold font */
+    font-weight: bold; /* Bold text */
+    font-size: 24px; /* Adjust the size as needed */
+    color: #FFD700; /* Gold color, for distinction */
+    text-shadow: 
+        2px 2px 0px #000000,   /* Black shadow for depth */
+        4px 4px 0px #FFFFFF;   /* White shadow for contrast */
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+#timer {
+  position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%); /* Centers the div */
+    font-size: 24px;
+    color: #FFFFFF; /* White color */
+    padding: 5px 10px; /* Add some padding */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    border: 2px solid #FFFFFF; /* White border */
+    border-radius: 5px; /* Rounded corners */
+    text-shadow: 2px 2px 4px #000000; /* Black shadow for better visibility */
+
+}
+
+#timer.shop-closed {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px; /* Larger font size */
+    color: red;
+    text-shadow: 3px 3px 4px black; /* Black drop shadow */
+}
