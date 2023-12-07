@@ -230,29 +230,34 @@
             document.getElementById('total').textContent = 'Total: $' + (total + 5).toFixed(2);
         }
 
-        function submitOrder() {
-            var customerName = document.getElementById('customerName').value;
-            var customerAddress = document.getElementById('customerAddress').value;
-            var customerEmail = document.getElementById('customerEmail').value;
-            var customerPhone = document.getElementById('customerPhone').value;
-            var paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+       function submitOrder() {
+    var customerName = document.getElementById('customerName').value;
+    var customerAddress = document.getElementById('customerAddress').value;
+    var customerEmail = document.getElementById('customerEmail').value;
+    var customerPhone = document.getElementById('customerPhone').value;
+    var paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
 
-            // Validate customer details
-            if (!customerName || !customerAddress || !customerEmail || !customerPhone) {
-                alert('Please provide all required details.');
-                return;
-            }
+    // Validate customer details
+    if (!customerName || !customerAddress || !customerEmail || !customerPhone) {
+        alert('Please provide all required details.');
+        return;
+    }
 
-            // Validate email format
-            if (!customerEmail.includes('@')) {
-                alert('Please enter a valid email address.');
-                return;
-            }
+    // Validate email format
+    if (!customerEmail.includes('@')) {
+        alert('Please enter a valid email address.');
+        return;
+    }
 
-            // You can now proceed to submit the order with customer details and payment method
-            // For simplicity, let's just show an alert
-            alert('Order placed!\n\nCustomer Name: ' + customerName + '\nAddress: ' + customerAddress + '\nEmail: ' + customerEmail + '\nContact Number: ' + customerPhone + '\nPayment Method: ' + paymentMethod);
-        }
+    // Get selected cakes from the cart
+    var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    var selectedCakes = cartItems.map(item => `${item.type} (${item.size})`);
+
+    // You can now proceed to submit the order with customer details, payment method, and selected cakes
+    // For simplicity, let's just show an alert
+    alert('Order placed!\n\nCustomer Name: ' + customerName + '\nAddress: ' + customerAddress + '\nEmail: ' + customerEmail + '\nContact Number: ' + customerPhone + '\nPayment Method: ' + paymentMethod + '\nSelected Cakes: ' + selectedCakes.join(', '));
+}
+
     </script>
     <footer class="footer mt-5 py-3 bg-light">
         <div class="container text-center">
