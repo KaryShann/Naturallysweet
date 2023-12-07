@@ -56,7 +56,6 @@
                                 <th scope="col">Item</th>
                                 <th scope="col">Thumbnail</th>
                                 <th scope="col">Description</th>
-                                <th scope="col">Price</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Total</th>
                             </tr>
@@ -119,17 +118,7 @@
 
             cart.forEach(function (item) {
                 var newRow = document.createElement('tr');
-                newRow.innerHTML = `
-                    <td>${item.type} (${item.size})</td>
-                    <td><img src="${getCakeImage(item.type)}" alt="${item.type}" class="thumbnail img-fluid cake-image"></td>
-                    <td>${getDescriptionByType(item.type)}</td>
-                    <td>${getPriceByTypeAndSize(item.type, item.size).toFixed(2)}</td>
-                    <td>
-                        <input type="number" class="form-control quantity-input" value="1" onchange="updateTotal()">
-                    </td>
-                    <td class="total">$${getPriceByTypeAndSize(item.type, item.size).toFixed(2)}</td>
-                `;
-
+               
                 cartItemsContainer.appendChild(newRow);
             });
 
