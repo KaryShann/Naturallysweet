@@ -129,6 +129,7 @@
         });
 
         function updateCart(cart) {
+            console.log('Cart Items:', cart);
             var cartItemsContainer = document.getElementById('cart-items');
             cartItemsContainer.innerHTML = '';
 
@@ -253,6 +254,7 @@
     // Retrieve selected cakes from the cart
     var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
     var selectedCakes = cartItems.map(item => `${item.type} (${item.size})`);
+     console.log('Selected Cakes:', selectedCakes);       
 
     // You can now proceed to submit the order with customer details, payment method, and selected cakes
     // For simplicity, let's just show an alert
