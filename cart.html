@@ -79,7 +79,22 @@
                 <div class="col-md-8 mx-auto">
                     <h2 class="mb-4">Customer Details</h2>
                     <form id="customer-form">
-                        <!-- ... (existing code) ... -->
+                        <div class="mb-3">
+                            <label for="customerName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="customerName" name="customerName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customerAddress" class="form-label">Address</label>
+                            <textarea class="form-control" id="customerAddress" name="customerAddress" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="customerEmail" name="customerEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customerPhone" class="form-label">Contact Number</label>
+                            <input type="tel" class="form-control" id="customerPhone" name="customerPhone" pattern="[0-9]+" title="Please enter numbers only" required>
+                        </div>
 
                         <!-- Subtotal and Total -->
                         <div class="mb-3">
