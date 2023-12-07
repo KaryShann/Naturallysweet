@@ -6,20 +6,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Naturally Sweet</title>
+    <title>Welcome to Naturally Sweet</title> <!-- rfghj -->
     <!-- Meta Tags for SEO -->
-    <meta name="description" content="Naturally Sweet - Delicious Vegan Treats for Everyone">
-    <meta property="og:title" content="Welcome to Naturally Sweet">
-    <meta property="og:description" content="Explore a variety of vegan bakery delights from Naturally Sweet">
+    <meta name="description" content="Naturally Sweet - Delicious Vegan Treats for Everyone">  <!--this describe the website offering delicious vegan treats for everyone -->
+    <meta property="og:title" content="Welcome to Naturally Sweet"> <!--This is an Open Graph (OG) tag,to control how the website is displayed when shared on social media platforms(display the title)-->
+    <meta property="og:description" content="Explore a variety of vegan bakery delights from Naturally Sweet"> <!--description for social media platforms-->
     <meta property="og:image" content="path/to/image.jpg">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="http://www.naturallysweet.com">
+    <meta property="og:type" content="website"> <!--type of content in this case is website-->
+    <meta property="og:url" content="http://www.naturallysweet.com"> <!--the full URL of the website-->
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    <!--integrity attribute, it contains a base64-encoded cryptographic hash, which the browser uses to verify that the content fetched is exactly what was expected.-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"  
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-        crossorigin="anonymous">
+        crossorigin="anonymous">  <!--means that the request for the Bootstrap CSS file will be made without sending credentials (like cookies or HTTP authentication)-->
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    <!--This line is linking the Font Awesome library, version 6.4.2. Font Awesome is a popular icon library used in web design-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"  
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="style.css" rel="stylesheet">
@@ -28,24 +30,24 @@
 <body>
 
     <!-- Header Section from index.html -->
-    <header class="custom-header py-3">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-4">
-                    <div class="logo">
-                        <h1 class="mb-1"><i class="fa-solid fa-cake-candles"></i> Naturally Sweet</h1>
+    <header class="custom-header py-3">  <!--assign two classes to the header, and py-3 is a Bootstrap class, which adds vertical padding to the header-->
+        <div class="container"> <!-- container class is used to center the content -->
+            <div class="row align-items-center"> <!-- row class is used to align the content in the header-->  
+                <div class="col-md-4"> <!-- col-md-4 is a Bootstrap class, which sets the width of the column to 4 columns on a medium or larger screen size, this column will occupy 4 out of the 12 possible grid columns-->
+                    <div class="logo"> <!-- logo class is used to style the logo -->
+                        <h1 class="mb-1"><i class="fa-solid fa-cake-candles"></i> Naturally Sweet</h1> <!-- mb-1 is a Bootstrap class, which adds margin-bottom, give some space below the logo. after I add the icon of a cake with candles, and the text of "Naturally Sweet"(logo)-->
                     </div>
                 </div>
-                <div class="col-md-8 text-md-end">
+                <div class="col-md-8 text-md-end"> <!-- text-md-end is a Bootstrap class, which aligns the text to the right-->
                     <nav>
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item"><a href="index.html"><i class="fa-solid fa-cake-candles"></i>
-                                    Home</a></li>
+                        <ul class="list-inline mb-0"> <!--This attribute assigns two classes to the unordered list, one is list-inline which will make the list horizontal, and the other is mb-0 which will remove the margin-bottom-->
+                            <li class="list-inline-item"><a href="index.html"><i class="fa-solid fa-cake-candles"></i> <!-- This icon is from Font Awesome library, it is a cake with candles icon and I have a tag that refers to the index.html-->
+                                    Home</a></li> <!-- Navbar links refer toHome-->
                             <li class="list-inline-item" style="color: gray;"><i
-                                        class="fa-solid fa-wand-magic-sparkles"></i> Make your cake</li>
+                                        class="fa-solid fa-wand-magic-sparkles"></i> Make your cake</li> <!-- This icon is from Font Awesome library, it is a wand with magic sparkles icon and set the style color to gray-->
                             <li class="list-inline-item"><a href="howplay.html"><i class="fa-solid fa-kitchen-set"></i>
-                                    How to Play</a></li>
-                            <li class="list-inline-item"><a href="game.html"><i class="fa-solid fa-burst"></i> Game</a>
+                                    How to Play</a></li> <!-- Navbar links refer to How to Play with the icon from Font Awesome-->
+                            <li class="list-inline-item"><a href="game.html"><i class="fa-solid fa-burst"></i> Game</a> <!-- Navbar links refer to Game with the icon from Font Awesome-->
 
                       <li class="list-inline-item"><a href="cart.html">
                           <i class="fa-solid fa-bag-shopping"></i> cart</a></li>
@@ -55,37 +57,37 @@
                 </div>
             </div>
         </div>
-    </header>
+    </header> <!-- End of Header Section -->
 
     <main>
-        <div class="container-fluid py-5">
-            <div class="row">
-                <div class="col-md-6 form-section">
-                    <div class="welcome-text-container">
-                        <h2>Customize Your Cake</h2>
+        <div class="container-fluid py-5"> <!-- container-fluid is a Bootstrap class, which sets the width of the container to 100% of the viewport width, py-5 is a Bootstrap class, which adds vertical padding to the container-->
+            <div class="row"> <!-- row class is used to align the content in the container-->
+                <div class="col-md-6 form-section"> <!-- col-md-6 is a Bootstrap class, which sets the width of the column to 6 columns on a medium or larger screen size, this column will occupy 6 out of the 12 possible grid columns-->
+                    <div class="welcome-text-container"> <!-- welcome-text-container class is used to style the welcome text-->
+                        <h2>Customize Your Cake</h2> 
                     </div>
                     <!-- Cake Customization Form -->
-                    <form style="padding: 20px; background: rgb(255 255 255 / 50%); margin-top: 20px; border-radius: 10px;">
+                    <form style="padding: 20px; background: rgb(255 255 255 / 50%); margin-top: 20px; border-radius: 10px;"> <!--is a Bootstrap class, which adds padding, background color, margin-top, and border radius to the form-->
                         <!-- Customer Name -->
                         <div class="form-group">
                             <label for="cakeMessage">Message on Cake (max 20 letters)</label>
                             <input type="text" class="form-control" id="cakeMessage" placeholder="Enter your message"
-                                maxlength="20" onblur="validateMessageLength()">
-                            <div class="invalid-feedback">Message cannot exceed 20 letters.</div>
+                                maxlength="20" onblur="validateMessageLength()"> <!-- onblur is a JavaScript event, which is triggered when the element loses focus, this function checks if the message exceeds the maximum length-->
+                            <div class="invalid-feedback">Message cannot exceed 20 letters.</div>  <!-- is a Bootstrap class, which display the message when the customer exceeds the maximum length-->
                         </div>
 
                         <!-- Error Alert, initially hidden -->
                         <div class="alert alert-danger alert-dismissible fade show" id="errorAlert"
-                            style="display:none;">
+                            style="display:none;"> <!-- is a Bootstrap class, which displays the alert when the customer exceeds the maximum length-->
                             <strong>Error!</strong> Your message cannot exceed 20 letters.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button> 
                         </div>
 
                         <!-- Cake Flavor -->
-                        <div class="form-group">
-                            <label for="cakeFlavor">Cake Flavor</label>
-                            <select class="form-control" id="cakeFlavor">
-                                <option>Vanilla</option>
+                        <div class="form-group"> <!-- is a Bootstrap class, which adds margin-bottom to the form group-->
+                            <label for="cakeFlavor">Cake Flavor</label> <!-- name of the label-->
+                            <select class="form-control" id="cakeFlavor"> <!--element is used to create a dropdown list. class="form-control", this class is used in Bootstrap and similar CSS frameworks, it styles the select element-->  
+                                <option>Vanilla</option> <!-- give the different options of flaviours -->
                                 <option>Chocolate</option>
                                 <option>Strawberry</option>
                                 <option>Lemon</option>
@@ -93,20 +95,20 @@
                         </div>
 
                         <!-- Frosting Type -->
-                        <div class="form-group">
-                            <label for="frostingType">Frosting Type</label>
+                        <div class="form-group"> 
+                            <label for="frostingType">Frosting Type</label> <!-- name of the label-->
                             <select class="form-control" id="frostingType">
-                                <option>Vanilla</option>
-                                <option>Chocolate</option>
-                                <option>Strawberry</option>
-                                <option>Lemon</option>
+                                <option>Buttercream Frosting</option> <!-- give the different options of frosting types -->
+                                <option>Cream Cheese Frosting</option>
+                                <option>Royal Icing</option>
+                                <option>Ganache</option>
                             </select>
                         </div>
 
                         <!-- Cake Shape -->
                         <div class="form-group">
                             <label>Cake Shape</label><br>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline"> 
                                 <input class="form-check-input" type="radio" name="cakeShape" id="round" value="round"
                                     checked>
                                 <label class="form-check-label" for="round">Round</label>
@@ -116,9 +118,9 @@
                                 <label class="form-check-label" for="square">Square</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="cakeShape" id="heart" value="heart">
+                                <input class="form-check-input" type="radio" name="cakeShape" id="heart" value="heart"> <!-- input is the HTML element used to create interactive controls for accepting data from the user, class="form-check-input", this class is used in Bootstrap and similar CSS frameworks, it applies specific Bootstrap styling for form inputs, particularly for checkboxes and radio buttons-->
                                 <label class="form-check-label" for="heart">Heart</label>
-                            </div>
+                            </div> 
                         </div>
 
                         <!-- Special Dietary Requirements -->
@@ -155,7 +157,7 @@
                                    min="1"
                                    max="3"
                                    step="1"
-                                onchange="updateCakeImage()">
+                                onchange="updateCakeImage()"> <!-- onchange="updateCakeImage()" is a JavaScript event handler that is triggered when the user interacts with the slider. -->
                         </div>
 
                         <!-- Pick-up Date -->
@@ -175,7 +177,7 @@
                             onclick="displaySelection()">Place Order</button>
                     </form>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6"> <!-- col-md-6 is a Bootstrap class that sets the width of the column to 6 columns -->
                     <h2>Your Selection</h2>
                     <div id="selectionDetails"/>
                 </div>
@@ -183,16 +185,16 @@
         </div>
     </main>
 
-    <footer class="footer mt-5 py-3 bg-light">
+    <footer class="footer mt-5 py-3 bg-light"> <!-- mt-5 is a Bootstrap class that sets the margin-top to 5rem -->
         <div class="container text-center">
             <span class="text-muted">© 2023 Naturally Sweet</span>
         </div>
     </footer>
 
     <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> <!-- jQuery library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> <!-- Popper.js library -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> <!-- Bootstrap JS library -->
 
     <script>
         const prices = {
