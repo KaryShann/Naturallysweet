@@ -106,151 +106,144 @@
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Retrieve cart data from local storage
-            var cart = JSON.parse(localStorage.getItem('cart')) || [];
-            updateCart(cart);
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Retrieve cart data from local storage
+        var cart = JSON.parse(localStorage.getItem('cart')) || [];
+        updateCart(cart);
+    });
+
+    function updateCart(cart) {
+        var cartItemsContainer = document.getElementById('cart-items');
+        cartItemsContainer.innerHTML = '';
+
+        cart.forEach(function (item) {
+            var newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${item.type} (${item.size})</td>
+                <td><img src="${getCakeImage(item.type)}" alt="${item.type}" class="thumbnail img-fluid cake-image"></td>
+                <td>${getDescriptionByType(item.type)}</td>
+                <td>${getPriceByTypeAndSize(item.type, item.size).toFixed(2)}</td>
+                <td>
+                    <input type="number" class="form-control quantity-input" value="1" onchange="updateTotal()">
+                </td>
+                <td class="total">$${getPriceByTypeAndSize(item.type, item.size).toFixed(2)}</td>
+            `;
+
+            cartItemsContainer.appendChild(newRow);
         });
 
-      function updateCart(cart) {
-    var cartItemsContainer = document.getElementById('cart-items');
-    cartItemsContainer.innerHTML = '';
+        updateTotal(); // Ensure total is updated after adding new items
+    }
 
-    cart.forEach(function (item) {
-        var newRow = document.createElement('tr');
-        newRow.innerHTML = `
-            <td>${item.type} (${item.size})</td>
-            <td><img src="${getCakeImage(item.type)}" alt="${item.type}" class="thumbnail img-fluid cake-image"></td>
-            <td>${getDescriptionByType(item.type)}</td>
-            <td>${getPriceByTypeAndSize(item.type, item.size).toFixed(2)}</td>
-            <td>
-                <input type="number" class="form-control quantity-input" value="1" onchange="updateTotal()">
-            </td>
-            <td class="total">$${getPriceByTypeAndSize(item.type, item.size).toFixed(2)}</td>
-        `;
+    function getCakeImage(cakeType) {
+        switch (cakeType) {
+            case 'chocCake':
+                return 'images/birthdayCake.jpg';
+            case 'xmasCake':
+                return 'images/xmasCake.jpg';
+            case 'christeningCake':
+                return 'images/christeningCake.jpg';
+            case 'weddingCake':
+                return 'images/weddingCake.jpg';
+            default:
+                return 'images/ChocCake.jpg';
+        }
+    }
 
-        cartItemsContainer.appendChild(newRow);
-    });
+    function getDescriptionByType(cakeType) {
+        switch (cakeType) {
+            case 'chocCake':
+                return 'A rich and chocolaty cake, perfect for chocolate lovers.';
+            case 'xmasCake':
+                return 'Spread holiday cheer with this festive and flavorful cake.';
+            case 'weddingCake':
+                return 'An elegant and sophisticated cake for a memorable wedding day.';
+            case 'christeningCake':
+                return 'Celebrate joyous occasions with this light and fluffy cake.';
+            default:
+                return 'A delicious cake for any occasion.';
+        }
+    }
 
-    updateTotal(); // Ensure total is updated after adding new items
-}
+    function getPriceByTypeAndSize(cakeType, cakeSize) {
+        // Define a mapping of prices for each cake type and size
+        const prices = {
+            chocCake: {
+                small: 20.00,
+                medium: 35.00,
+                large: 50.00
+            },
+            xmasCake: {
+                small: 25.00,
+                medium: 40.00,
+                large: 55.00
+            },
+            weddingCake: {
+                small: 30.00,
+                medium: 45.00,
+                large: 60.00
+            },
+            christeningCake: {
+                small: 22.00,
+                medium: 38.00,
+                large: 52.00
+            },
+        };
 
-
-    updateTotal(); // Ensure total is updated after adding new items
-}
-
-            updateTotal();
+        // Check if the provided cake type and size exist in the mapping
+        if (prices[cakeType] && prices[cakeType][cakeSize]) {
+            return prices[cakeType][cakeSize];
         }
 
-        function getCakeImage(cakeType) {
-            switch (cakeType) {
-                case 'chocCake':
-                    return 'images/birthdayCake.jpg';
-                case 'xmasCake':
-                    return 'images/xmasCake.jpg';
-                case 'christeningCake':
-                    return 'images/christeningCake.jpg';
-                case 'weddingCake':
-                    return 'images/weddingCake.jpg';
-                default:
-                    return 'images/ChocCake.jpg';
-            }
+        // Return a default price if the type or size is not found
+        return 20.00;
+    }
+
+    function updateTotal() {
+        var quantityInputs = document.querySelectorAll('.quantity-input');
+        var total = 0;
+
+        quantityInputs.forEach(function (quantityInput, index) {
+            var quantity = parseInt(quantityInput.value);
+            var pricePerCake = index === 0 ? getPriceByTypeAndSize('chocCake', 'small') : getPriceByTypeAndSize('mintCake', 'medium');
+            var rowTotal = (quantity * pricePerCake).toFixed(2);
+
+            // Use document.querySelector instead of document.querySelectorAll
+            document.querySelector('.total').textContent = '$' + rowTotal;
+            total += parseFloat(rowTotal);
+        });
+
+        // Update Subtotal and Total
+        document.getElementById('subtotal').textContent = 'Subtotal: $' + total.toFixed(2);
+        document.getElementById('total').textContent = 'Total: $' + (total + 5).toFixed(2);
+    }
+
+    function submitOrder() {
+        var customerName = document.getElementById('customerName').value;
+        var customerAddress = document.getElementById('customerAddress').value;
+        var customerEmail = document.getElementById('customerEmail').value;
+        var customerPhone = document.getElementById('customerPhone').value;
+        var paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+
+        // Validate customer details
+        if (!customerName || !customerAddress || !customerEmail || !customerPhone) {
+            alert('Please provide all required details.');
+            return;
         }
 
-        function getDescriptionByType(cakeType) {
-            switch (cakeType) {
-                case 'chocCake':
-                    return 'A rich and chocolaty cake, perfect for chocolate lovers.';
-                case 'xmasCake':
-                    return 'Spread holiday cheer with this festive and flavorful cake.';
-                case 'weddingCake':
-                    return 'An elegant and sophisticated cake for a memorable wedding day.';
-                case 'christeningCake':
-                    return 'Celebrate joyous occasions with this light and fluffy cake.';
-                default:
-                    return 'A delicious cake for any occasion.';
-            }
+        // Validate email format
+        if (!customerEmail.includes('@')) {
+            alert('Please enter a valid email address.');
+            return;
         }
 
-        function getPriceByTypeAndSize(cakeType, cakeSize) {
-            // Define a mapping of prices for each cake type and size
-            const prices = {
-                chocCake: {
-                    small: 20.00,
-                    medium: 35.00,
-                    large: 50.00
-                },
-                xmasCake: {
-                    small: 25.00,
-                    medium: 40.00,
-                    large: 55.00
-                },
-                weddingCake: {
-                    small: 30.00,
-                    medium: 45.00,
-                    large: 60.00
-                },
-                christeningCake: {
-                    small: 22.00,
-                    medium: 38.00,
-                    large: 52.00
-                },
-            };
+        // You can now proceed to submit the order with customer details and payment method
+        // For simplicity, let's just show an alert
+        alert('Order placed!\n\nCustomer Name: ' + customerName + '\nAddress: ' + customerAddress + '\nEmail: ' + customerEmail + '\nContact Number: ' + customerPhone + '\nPayment Method: ' + paymentMethod);
+    }
+</script>
 
-            // Check if the provided cake type and size exist in the mapping
-            if (prices[cakeType] && prices[cakeType][cakeSize]) {
-                return prices[cakeType][cakeSize];
-            }
-
-            // Return a default price if the type or size is not found
-            return 20.00;
-        }
-
-        function updateTotal() {
-    var quantityInputs = document.querySelectorAll('.quantity-input');
-    var total = 0;
-
-    quantityInputs.forEach(function (quantityInput, index) {
-        var quantity = parseInt(quantityInput.value);
-        var pricePerCake = index === 0 ? getPriceByTypeAndSize('chocCake', 'small') : getPriceByTypeAndSize('mintCake', 'medium');
-        var rowTotal = (quantity * pricePerCake).toFixed(2);
-        
-        // Use document.querySelector instead of document.querySelectorAll
-        document.querySelector('.total').textContent = '$' + rowTotal;
-        total += parseFloat(rowTotal);
-    });
-
-    // Update Subtotal and Total
-    document.getElementById('subtotal').textContent = 'Subtotal: $' + total.toFixed(2);
-    document.getElementById('total').textContent = 'Total: $' + (total + 5).toFixed(2);
-}
-
-
-        function submitOrder() {
-            var customerName = document.getElementById('customerName').value;
-            var customerAddress = document.getElementById('customerAddress').value;
-            var customerEmail = document.getElementById('customerEmail').value;
-            var customerPhone = document.getElementById('customerPhone').value;
-            var paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-
-            // Validate customer details
-            if (!customerName || !customerAddress || !customerEmail || !customerPhone) {
-                alert('Please provide all required details.');
-                return;
-            }
-
-            // Validate email format
-            if (!customerEmail.includes('@')) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-
-            // You can now proceed to submit the order with customer details and payment method
-            // For simplicity, let's just show an alert
-            alert('Order placed!\n\nCustomer Name: ' + customerName + '\nAddress: ' + customerAddress + '\nEmail: ' + customerEmail + '\nContact Number: ' + customerPhone + '\nPayment Method: ' + paymentMethod);
-        }
-    </script>
     <footer class="footer mt-5 py-3 bg-light">
         <div class="container text-center">
             <span class="text-muted">© 2023 Naturally Sweet</span>
