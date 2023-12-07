@@ -34,7 +34,7 @@
                             <li class="list-inline-item"><a href="makecake.html"><i class="fa-solid fa-wand-magic-sparkles"></i> Make your cake</a></li>
                             <li class="list-inline-item"><a href="howplay.html"><i class="fa-solid fa-kitchen-set"></i> How to Play</a></li>
                             <li class="list-inline-item"><a href="game.html"><i class="fa-solid fa-burst"></i> Game</a></li>
-                            <li class="list-inline-item"><a href="cart.html"><i class="fa-solid fa-bag-shopping fa-beat"></i> Cart</a></li>
+                            <li class="list-inline-item"><a href="cart.html"><i class="fa-solid fa-bag-shopping fa-beat"></i> cart</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -67,13 +67,6 @@
                 </div>
             </div>
 
-            <!-- Clear Cart Button -->
-            <div class="row">
-                <div class="col-md-8 mx-auto">
-                    <button type="button" class="btn btn-danger" onclick="clearCart()">Clear Cart</button>
-                </div>
-            </div>
-
             <!-- Customer Details Form -->
             <div class="row">
                 <div class="col-md-8 mx-auto">
@@ -103,6 +96,7 @@
                         </div>
 
                         <button type="button" class="btn btn-primary" onclick="submitOrder()">Place Order</button>
+                        <button type="button" class="btn btn-secondary" onclick="clearCart()">Clear Cart</button>
                     </form>
                 </div>
             </div>
@@ -241,20 +235,40 @@
             document.getElementById('total').textContent = 'Total: $' + (total + 5).toFixed(2);
         }
 
-        function clearCart() {
-            // Clear the cart in local storage
-            localStorage.removeItem('cart');
+        function submitOrder() {
+            // Retrieve customer details
+            var customerName = document.getElementById('customerName').value;
+            var customerAddress = document.getElementById('customerAddress').value;
+            var customerEmail = document.getElementById('customerEmail').value;
+            var customerPhone = document.getElementById('customerPhone').value;
 
-            // Update the displayed cart
+            // Display a pop-up with customer details
+            var orderDetails = `
+                Customer Name: ${customerName}\n
+                Address: ${customerAddress}\n
+                Email: ${customerEmail}\n
+                Contact Number: ${customerPhone}\n
+            `;
+
+            alert(`Order submitted successfully!\n\n${orderDetails}`);
+        }
+
+        function clearCart() {
+            // Clear the cart and update the display
+            localStorage.removeItem('cart');
             updateCart([]);
         }
-
-        function submitOrder() {
-            // Handle order submission logic here
-            // You can retrieve customer details and cart items for further processing
-            alert('Order submitted successfully!');
-        }
     </script>
+
+    <footer class="footer mt-5 py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">© 2023 Naturally Sweet</span>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 </body>
 
 </html>
