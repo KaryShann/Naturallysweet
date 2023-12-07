@@ -219,29 +219,33 @@
         document.getElementById('total').textContent = 'Total: $' + (total + 5).toFixed(2);
     }
 
-    function submitOrder() {
-        var customerName = document.getElementById('customerName').value;
-        var customerAddress = document.getElementById('customerAddress').value;
-        var customerEmail = document.getElementById('customerEmail').value;
-        var customerPhone = document.getElementById('customerPhone').value;
-        var paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+   function submitOrder() {
+    var customerName = document.getElementById('customerName').value;
+    var customerAddress = document.getElementById('customerAddress').value;
+    var customerEmail = document.getElementById('customerEmail').value;
+    var customerPhone = document.getElementById('customerPhone').value;
 
-        // Validate customer details
-        if (!customerName || !customerAddress || !customerEmail || !customerPhone) {
-            alert('Please provide all required details.');
-            return;
-        }
+    // Check if a payment method is selected
+    var paymentMethodElement = document.querySelector('input[name="paymentMethod"]:checked');
+    var paymentMethod = paymentMethodElement ? paymentMethodElement.value : '';
 
-        // Validate email format
-        if (!customerEmail.includes('@')) {
-            alert('Please enter a valid email address.');
-            return;
-        }
-
-        // You can now proceed to submit the order with customer details and payment method
-        // For simplicity, let's just show an alert
-        alert('Order placed!\n\nCustomer Name: ' + customerName + '\nAddress: ' + customerAddress + '\nEmail: ' + customerEmail + '\nContact Number: ' + customerPhone + '\nPayment Method: ' + paymentMethod);
+    // Validate customer details
+    if (!customerName || !customerAddress || !customerEmail || !customerPhone || !paymentMethod) {
+        alert('Please provide all required details, including selecting a payment method.');
+        return;
     }
+
+    // Validate email format
+    if (!customerEmail.includes('@')) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+
+    // You can now proceed to submit the order with customer details and payment method
+    // For simplicity, let's just show an alert
+    alert('Order placed!\n\nCustomer Name: ' + customerName + '\nAddress: ' + customerAddress + '\nEmail: ' + customerEmail + '\nContact Number: ' + customerPhone + '\nPayment Method: ' + paymentMethod);
+}
+
 </script>
 
     <footer class="footer mt-5 py-3 bg-light">
