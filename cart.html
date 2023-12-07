@@ -201,21 +201,24 @@
         }
 
         function updateTotal() {
-            var quantityInputs = document.querySelectorAll('.quantity-input');
-            var total = 0;
+    var quantityInputs = document.querySelectorAll('.quantity-input');
+    var total = 0;
 
-            quantityInputs.forEach(function (quantityInput, index) {
-                var quantity = parseInt(quantityInput.value);
-                var pricePerCake = index === 0 ? getPriceByTypeAndSize('chocCake', 'small') : getPriceByTypeAndSize('mintCake', 'medium');
-                var rowTotal = (quantity * pricePerCake).toFixed(2);
-                document.querySelectorAll('.total')[index].textContent = '$' + rowTotal;
-                total += parseFloat(rowTotal);
-            });
+    quantityInputs.forEach(function (quantityInput, index) {
+        var quantity = parseInt(quantityInput.value);
+        var pricePerCake = index === 0 ? getPriceByTypeAndSize('chocCake', 'small') : getPriceByTypeAndSize('mintCake', 'medium');
+        var rowTotal = (quantity * pricePerCake).toFixed(2);
+        
+        // Use document.querySelector instead of document.querySelectorAll
+        document.querySelector('.total').textContent = '$' + rowTotal;
+        total += parseFloat(rowTotal);
+    });
 
-            // Update Subtotal and Total
-            document.getElementById('subtotal').textContent = 'Subtotal: $' + total.toFixed(2);
-            document.getElementById('total').textContent = 'Total: $' + (total + 5).toFixed(2);
-        }
+    // Update Subtotal and Total
+    document.getElementById('subtotal').textContent = 'Subtotal: $' + total.toFixed(2);
+    document.getElementById('total').textContent = 'Total: $' + (total + 5).toFixed(2);
+}
+
 
         function submitOrder() {
             var customerName = document.getElementById('customerName').value;
