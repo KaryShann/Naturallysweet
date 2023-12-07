@@ -9,6 +9,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Naturally Sweet - Delicious Vegan Treats for Everyone">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Font Awesome CSS -->
@@ -34,7 +36,7 @@
                             <li class="list-inline-item"><a href="makecake.html"><i class="fa-solid fa-wand-magic-sparkles"></i> Make your cake</a></li>
                             <li class="list-inline-item"><a href="howplay.html"><i class="fa-solid fa-kitchen-set"></i> How to Play</a></li>
                             <li class="list-inline-item"><a href="game.html"><i class="fa-solid fa-burst"></i> Game</a></li>
-                            <i class="fa-solid fa-bag-shopping fa-beat"></i> cart</a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa-solid fa-bag-shopping fa-beat"></i> Cart</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -44,7 +46,7 @@
 
     <!-- Main Content Section -->
     <section class="cart-content py-5">
-        <div class="container mx-auto" style="width: 100%;">
+        <div class="container-fluid mx-auto">
             <h2 class="text-center mb-4">Shopping Cart</h2>
             <div class="row">
                 <div class="col-md-8 mx-auto">
@@ -112,7 +114,6 @@
                     </form>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -134,7 +135,7 @@
                 var newRow = document.createElement('tr');
                 newRow.innerHTML = `
                     <td>${item.type} (${item.size})</td>
-                    <td><img src="${getCakeImage(item.type)}" alt="${item.type}" class="thumbnail img-fluid cake-image"></td>
+                    <td><img src="${getCakeImage(item.type)}" alt="${item.type} Cake" class="thumbnail img-fluid cake-image"></td>
                     <td>${getDescriptionByType(item.type)}</td>
                     <td>${getPriceByTypeAndSize(item.type, item.size).toFixed(2)}</td>
                     <td>
@@ -219,7 +220,7 @@
 
             quantityInputs.forEach(function (quantityInput, index) {
                 var quantity = parseInt(quantityInput.value);
-                var pricePerCake = index === 0 ? getPriceByTypeAndSize('chocCake', 'small') : getPriceByTypeAndSize('mintCake', 'medium');
+                var pricePerCake = getPriceByTypeAndSize('chocCake', 'small');
                 var rowTotal = (quantity * pricePerCake).toFixed(2);
                 document.querySelectorAll('.total')[index].textContent = '$' + rowTotal;
                 total += parseFloat(rowTotal);
@@ -260,8 +261,8 @@
     </footer>
     <!-- Bootstrap JavaScript dependencies -->
     <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>     
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
