@@ -1,6 +1,6 @@
-<!--Ruth Woods X23174382-->
-<!--sources, google, youtube, NCI notes-->
-<!--Images = https://unsplash.com/s/photos/cakes-->
+<!-- Ruth Woods X23174382 -->
+<!-- sources, google, youtube, NCI notes -->
+<!-- Images = https://unsplash.com/s/photos/cakes -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +34,7 @@
                             <li class="list-inline-item"><a href="makecake.html"><i class="fa-solid fa-wand-magic-sparkles"></i> Make your cake</a></li>
                             <li class="list-inline-item"><a href="howplay.html"><i class="fa-solid fa-kitchen-set"></i> How to Play</a></li>
                             <li class="list-inline-item"><a href="game.html"><i class="fa-solid fa-burst"></i> Game</a></li>
-                            <li class="list-inline-item"><a href="cart.html"><i class="fa-solid fa-bag-shopping fa-beat"></i> Cart</a></li>
+                            <li class="list-inline-item"><a href="cart.html"><i class="fa-solid fa-bag-shopping fa-beat"></i> cart</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -90,43 +90,20 @@
                             <input type="tel" class="form-control" id="customerPhone" name="customerPhone" pattern="[0-9]+" title="Please enter numbers only" required>
                         </div>
 
+                        <!-- Subtotal and Total -->
                         <div class="mb-3">
-                            <!-- Payment Method Box -->
-                            <div class="card p-3">
-                                <label class="form-label">Payment Method</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="paymentMethod" id="cashPayment" value="cash" checked>
-                                    <label class="form-check-label" for="cashPayment">Cash</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="paymentMethod" id="cardPayment" value="card">
-                                    <label class="form-check-label" for="cardPayment">Card</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="paymentMethod" id="paypalPayment" value="paypal">
-                                    <label class="form-check-label" for="paypalPayment">Paypal</label>
-                                </div>
-                            </div>
-                            <!-- End Payment Method Box -->
+                            <div id="subtotal"></div>
+                            <div id="total"></div>
                         </div>
 
                         <button type="button" class="btn btn-primary" onclick="submitOrder()">Place Order</button>
                     </form>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <footer class="footer mt-5 py-3 bg-light">
-        <div class="container text-center">
-            <span class="text-muted">© 2023 Naturally Sweet</span>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JavaScript dependencies -->
-    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
     <script>
@@ -235,6 +212,7 @@
                 total += parseFloat(rowTotal);
             });
 
+            // Update Subtotal and Total
             document.getElementById('subtotal').textContent = 'Subtotal: $' + total.toFixed(2);
             document.getElementById('total').textContent = 'Total: $' + (total + 5).toFixed(2);
         }
@@ -263,6 +241,15 @@
             alert('Order placed!\n\nCustomer Name: ' + customerName + '\nAddress: ' + customerAddress + '\nEmail: ' + customerEmail + '\nContact Number: ' + customerPhone + '\nPayment Method: ' + paymentMethod);
         }
     </script>
+    <footer class="footer mt-5 py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">© 2023 Naturally Sweet</span>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
