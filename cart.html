@@ -1,6 +1,6 @@
-<!--Ruth Woods X23174382-->
-<!--sources, google, youtube, NCI notes-->
-<!--Images = https://unsplash.com/s/photos/cakes-->
+<!-- Ruth Woods X23174382 -->
+<!-- sources, google, youtube, NCI notes -->
+<!-- Images = https://unsplash.com/s/photos/cakes -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +34,7 @@
                             <li class="list-inline-item"><a href="makecake.html"><i class="fa-solid fa-wand-magic-sparkles"></i> Make your cake</a></li>
                             <li class="list-inline-item"><a href="howplay.html"><i class="fa-solid fa-kitchen-set"></i> How to Play</a></li>
                             <li class="list-inline-item"><a href="game.html"><i class="fa-solid fa-burst"></i> Game</a></li>
-                            <i class="fa-solid fa-bag-shopping fa-beat"></i> cart</a></li>
+                            <li class="list-inline-item"><a href="cart.html"><i class="fa-solid fa-bag-shopping fa-beat"></i> cart</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -44,8 +44,10 @@
 
     <!-- Main Content Section -->
     <section class="cart-content py-5">
-        <div class="container mx-auto" style="width: 100%;">
-            <h2 class="text-center mb-4">Shopping Cart</h2>
+        <div class="container">
+            <div class="welcome-text-container">
+                <h2 class="text-center mb-4">Shopping Cart</h2>
+            </div>
             <div class="row">
                 <div class="col-md-8 mx-auto">
                     <table class="table">
@@ -87,32 +89,17 @@
                             <label for="customerPhone" class="form-label">Contact Number</label>
                             <input type="tel" class="form-control" id="customerPhone" name="customerPhone" pattern="[0-9]+" title="Please enter numbers only" required>
                         </div>
-                        
+
+                        <!-- Subtotal and Total -->
                         <div class="mb-3">
-                            <!-- Payment Method Box -->
-                            <div class="card p-3">
-                                <label class="form-label">Payment Method</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="paymentMethod" id="cashPayment" value="cash" checked>
-                                    <label class="form-check-label" for="cashPayment">Cash</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="paymentMethod" id="cardPayment" value="card">
-                                    <label class="form-check-label" for="cardPayment">Card</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="paymentMethod" id="paypalPayment" value="paypal">
-                                    <label class="form-check-label" for="paypalPayment">Paypal</label>
-                                </div>
-                            </div>
-                            <!-- End Payment Method Box -->
+                            <div id="subtotal"></div>
+                            <div id="total"></div>
                         </div>
 
                         <button type="button" class="btn btn-primary" onclick="submitOrder()">Place Order</button>
                     </form>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -137,16 +124,14 @@
                     <td><img src="${getCakeImage(item.type)}" alt="${item.type}" class="thumbnail img-fluid cake-image"></td>
                     <td>${getDescriptionByType(item.type)}</td>
                     <td>${getPriceByTypeAndSize(item.type, item.size).toFixed(2)}</td>
-                    <td>
-                        <input type="number" class="form-control quantity-input" value="1" onchange="updateTotal()">
-                    </td>
-                    <td class="total">$${getPriceByTypeAndSize(item.type, item.size).toFixed(2)}</td>
+                    <td>${item.quantity}</td>
+                    <td class="total">$${(getPriceByTypeAndSize(item.type, item.size) * item.quantity).toFixed(2)}</td>
                 `;
 
                 cartItemsContainer.appendChild(newRow);
             });
 
-            updateTotal();
+            updateTotal(); // Ensure total is updated after adding new items
         }
 
         function getCakeImage(cakeType) {
@@ -160,7 +145,7 @@
                 case 'weddingCake':
                     return 'images/weddingCake.jpg';
                 default:
-                    return 'images/ChocCake.jpg';
+                    return '';
             }
         }
 
@@ -169,99 +154,67 @@
                 case 'chocCake':
                     return 'A rich and chocolaty cake, perfect for chocolate lovers.';
                 case 'xmasCake':
-                    return 'Spread holiday cheer with this festive and flavorful cake.';
-                case 'weddingCake':
-                    return 'An elegant and sophisticated cake for a memorable wedding day.';
+                    return 'Spread holiday cheer with this festive cake.';
                 case 'christeningCake':
-                    return 'Celebrate joyous occasions with this light and fluffy cake.';
+                    return 'Celebrate the joy of christening with this delightful cake.';
+                case 'weddingCake':
+                    return 'Make your wedding day extra special with this cake.';
                 default:
-                    return 'A delicious cake for any occasion.';
+                    return '';
             }
         }
 
         function getPriceByTypeAndSize(cakeType, cakeSize) {
-            // Define a mapping of prices for each cake type and size
-            const prices = {
-                chocCake: {
-                    small: 20.00,
-                    medium: 35.00,
-                    large: 50.00
-                },
-                xmasCake: {
-                    small: 25.00,
-                    medium: 40.00,
-                    large: 55.00
-                },
-                weddingCake: {
-                    small: 30.00,
-                    medium: 45.00,
-                    large: 60.00
-                },
-                christeningCake: {
-                    small: 22.00,
-                    medium: 38.00,
-                    large: 52.00
-                },
+            // Prices are hardcoded here; you might want to implement a more dynamic pricing system
+            var basePrices = {
+                'chocCake': 20,
+                'xmasCake': 15,
+                'christeningCake': 22,
+                'weddingCake': 30
             };
 
-            // Check if the provided cake type and size exist in the mapping
-            if (prices[cakeType] && prices[cakeType][cakeSize]) {
-                return prices[cakeType][cakeSize];
-            }
-
-            // Return a default price if the type or size is not found
-            return 20.00;
+            return basePrices[cakeType] || 0;
         }
 
         function updateTotal() {
-            var quantityInputs = document.querySelectorAll('.quantity-input');
-            var total = 0;
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
+            var subtotal = 0;
 
-            quantityInputs.forEach(function (quantityInput, index) {
-                var quantity = parseInt(quantityInput.value);
-                var pricePerCake = index === 0 ? getPriceByTypeAndSize('chocCake', 'small') : getPriceByTypeAndSize('mintCake', 'medium');
-                var rowTotal = (quantity * pricePerCake).toFixed(2);
-                document.querySelectorAll('.total')[index].textContent = '$' + rowTotal;
-                total += parseFloat(rowTotal);
+            cart.forEach(function (item) {
+                var itemPrice = getPriceByTypeAndSize(item.type, item.size);
+                subtotal += itemPrice * item.quantity;
             });
 
-            document.getElementById('subtotal').textContent = 'Subtotal: $' + total.toFixed(2);
-            document.getElementById('total').textContent = 'Total: $' + (total + 5).toFixed(2);
+            var subtotalElement = document.getElementById('subtotal');
+            var totalElement = document.getElementById('total');
+
+            subtotalElement.innerHTML = `<p>Subtotal: $${subtotal.toFixed(2)}</p>`;
+            totalElement.innerHTML = `<p>Total: $${subtotal.toFixed(2)}</p>`;
         }
 
         function submitOrder() {
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
             var customerName = document.getElementById('customerName').value;
             var customerAddress = document.getElementById('customerAddress').value;
             var customerEmail = document.getElementById('customerEmail').value;
             var customerPhone = document.getElementById('customerPhone').value;
-            var paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
 
-            // Validate customer details
-            if (!customerName || !customerAddress || !customerEmail || !customerPhone) {
-                alert('Please provide all required details.');
-                return;
-            }
+            // You can send the order details to your backend or process them as needed
+            // In this example, we'll just log the details to the console
+            console.log('Customer Name:', customerName);
+            console.log('Customer Address:', customerAddress);
+            console.log('Customer Email:', customerEmail);
+            console.log('Customer Phone:', customerPhone);
+            console.log('Order Details:', cart);
 
-            // Validate email format
-            if (!customerEmail.includes('@')) {
-                alert('Please enter a valid email address.');
-                return;
-            }
+            // Clear the cart and update the display
+            localStorage.removeItem('cart');
+            updateCart([]);
 
-            // You can now proceed to submit the order with customer details and payment method
-            // For simplicity, let's just show an alert
-            alert('Order placed!\n\nCustomer Name: ' + customerName + '\nAddress: ' + customerAddress + '\nEmail: ' + customerEmail + '\nContact Number: ' + customerPhone + '\nPayment Method: ' + paymentMethod);
+            // You may want to show a success message or redirect to a confirmation page
+            alert('Order placed successfully!');
         }
     </script>
-    <footer class="footer mt-5 py-3 bg-light">
-        <div class="container text-center">
-            <span class="text-muted">© 2023 Naturally Sweet</span>
-        </div>
-    </footer>
-    <!-- Bootstrap JavaScript dependencies -->
-    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>     
-</script>
 </body>
 
 </html>
