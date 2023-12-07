@@ -113,7 +113,7 @@
             updateCart(cart);
         });
 
-       function updateCart(cart) {
+      function updateCart(cart) {
     var cartItemsContainer = document.getElementById('cart-items');
     cartItemsContainer.innerHTML = '';
 
@@ -132,6 +132,10 @@
 
         cartItemsContainer.appendChild(newRow);
     });
+
+    updateTotal(); // Ensure total is updated after adding new items
+}
+
 
     updateTotal(); // Ensure total is updated after adding new items
 }
