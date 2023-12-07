@@ -89,6 +89,25 @@
                             <input type="tel" class="form-control" id="customerPhone" name="customerPhone" pattern="[0-9]+" title="Please enter numbers only" required>
                         </div>
 
+                        <div class="mb-3">
+                            <!-- Payment Method Box -->
+                            <div class="card p-3">
+                                <label class="form-label">Payment Method</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="cashPayment" value="cash" checked>
+                                    <label class="form-check-label" for="cashPayment">Cash</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="cardPayment" value="card">
+                                    <label class="form-check-label" for="cardPayment">Card</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="paypalPayment" value="paypal">
+                                    <label class="form-check-label" for="paypalPayment">Paypal</label>
+                                </div>
+                            </div>
+                            <!-- End Payment Method Box -->
+                        </div>
                         <!-- Subtotal and Total -->
                         <div class="mb-3">
                             <div id="subtotal"></div>
