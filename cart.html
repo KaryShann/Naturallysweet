@@ -95,7 +95,7 @@
                             <div id="total"></div>
                         </div>
 
-                        <button type="button" class="btn btn-primary" onclick="submitOrder()">Place Order</button>
+                        <button type="button" class="btn btn-primary" id="placeOrderBtn" onclick="submitOrder()" disabled>Place Order</button>
                         <button type="button" class="btn btn-secondary" onclick="clearCart()">Clear Cart</button>
                     </form>
                 </div>
@@ -233,6 +233,12 @@
             // Update Subtotal and Total
             document.getElementById('subtotal').textContent = 'Subtotal: $' + total.toFixed(2);
             document.getElementById('total').textContent = 'Total: $' + (total + 5).toFixed(2);
+
+            // Enable or disable the Place Order button based on form validity
+            var placeOrderBtn = document.getElementById('placeOrderBtn');
+            var formIsValid = document.getElementById('customer-form').checkValidity();
+            var cartNotEmpty = JSON.parse(localStorage.getItem('cart')) && JSON.parse(localStorage.getItem('cart')).length > 0;
+            placeOrderBtn.disabled = !(formIsValid && cartNotEmpty);
         }
 
         function submitOrder() {
@@ -257,6 +263,7 @@
             // Clear the cart and update the display
             localStorage.removeItem('cart');
             updateCart([]);
+            updateTotal(); // Ensure the total is updated after clearing the cart
         }
     </script>
 
