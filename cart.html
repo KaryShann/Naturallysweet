@@ -124,8 +124,10 @@
                     <td><img src="${getCakeImage(item.type)}" alt="${item.type}" class="thumbnail img-fluid cake-image"></td>
                     <td>${getDescriptionByType(item.type)}</td>
                     <td>${getPriceByTypeAndSize(item.type, item.size).toFixed(2)}</td>
-                    <td>${item.quantity}</td>
-                    <td class="total">$${(getPriceByTypeAndSize(item.type, item.size) * item.quantity).toFixed(2)}</td>
+                    <td>
+                        <input type="number" class="form-control quantity-input" value="1" onchange="updateTotal()">
+                    </td>
+                    <td class="total">$${getPriceByTypeAndSize(item.type, item.size).toFixed(2)}</td>
                 `;
 
                 cartItemsContainer.appendChild(newRow);
@@ -137,13 +139,13 @@
         function getCakeImage(cakeType) {
             switch (cakeType) {
                 case 'chocCake':
-                    return 'images/birthdayCake.jpg';
+                    return 'images/bakery/chocCake.jpg';
                 case 'xmasCake':
-                    return 'images/xmasCake.jpg';
-                case 'christeningCake':
-                    return 'images/christeningCake.jpg';
+                    return 'images/bakery/xmasCake.jpg';
                 case 'weddingCake':
-                    return 'images/weddingCake.jpg';
+                    return 'images/bakery/weddingCake.jpg';
+                case 'christeningCake':
+                    return 'images/bakery/christeningCake.jpg';
                 default:
                     return '';
             }
@@ -155,65 +157,51 @@
                     return 'A rich and chocolaty cake, perfect for chocolate lovers.';
                 case 'xmasCake':
                     return 'Spread holiday cheer with this festive cake.';
-                case 'christeningCake':
-                    return 'Celebrate the joy of christening with this delightful cake.';
                 case 'weddingCake':
                     return 'Make your wedding day extra special with this cake.';
+                case 'christeningCake':
+                    return 'Celebrate the joy of christening with this delightful cake.';
                 default:
                     return '';
             }
         }
 
         function getPriceByTypeAndSize(cakeType, cakeSize) {
-    // Prices are hardcoded here; you might want to implement a more dynamic pricing system
-    var basePrices = {
-        'chocCake': { '20': 20, '35': 35, '50': 50 },
-        'xmasCake': { '15': 15, '20': 20, '28': 28 },
-        'christeningCake': { '22': 22, '38': 38, '52': 52 },
-        'weddingCake': { '30': 30, '45': 45, '60': 60 }
-    };
-
-    return basePrices[cakeType]?.[cakeSize] || 0;
-}
-
+            switch (cakeSize) {
+                case 'small':
+                    return 20.00;
+                case 'medium':
+                    return 28.00;
+                case 'large':
+                    return 38.00;
+                default:
+                    return 0.00;
+            }
+        }
 
         function updateTotal() {
-            var cart = JSON.parse(localStorage.getItem('cart')) || [];
-            var subtotal = 0;
+            var quantityInputs = document.querySelectorAll('.quantity-input');
+            var total = 0;
 
-            cart.forEach(function (item) {
-                var itemPrice = getPriceByTypeAndSize(item.type, item.size);
-                subtotal += itemPrice * item.quantity;
+            quantityInputs.forEach(function (quantityInput, index) {
+                var quantity = parseInt(quantityInput.value) || 0; // Ensure quantity is a valid number
+                var pricePerCake = index === 0 ? getPriceByTypeAndSize('chocCake', 'small') : getPriceByTypeAndSize('xmasCake', 'medium');
+                var rowTotal = (quantity * pricePerCake).toFixed(2);
+
+                // Update the quantity and total for the specific row
+                quantityInput.closest('tr').querySelector('.total').textContent = '$' + rowTotal;
+                total += parseFloat(rowTotal);
             });
 
-            var subtotalElement = document.getElementById('subtotal');
-            var totalElement = document.getElementById('total');
-
-            subtotalElement.innerHTML = `<p>Subtotal: $${subtotal.toFixed(2)}</p>`;
-            totalElement.innerHTML = `<p>Total: $${subtotal.toFixed(2)}</p>`;
+            // Update Subtotal and Total
+            document.getElementById('subtotal').textContent = 'Subtotal: $' + total.toFixed(2);
+            document.getElementById('total').textContent = 'Total: $' + (total + 5).toFixed(2);
         }
 
         function submitOrder() {
-            var cart = JSON.parse(localStorage.getItem('cart')) || [];
-            var customerName = document.getElementById('customerName').value;
-            var customerAddress = document.getElementById('customerAddress').value;
-            var customerEmail = document.getElementById('customerEmail').value;
-            var customerPhone = document.getElementById('customerPhone').value;
-
-            // You can send the order details to your backend or process them as needed
-            // In this example, we'll just log the details to the console
-            console.log('Customer Name:', customerName);
-            console.log('Customer Address:', customerAddress);
-            console.log('Customer Email:', customerEmail);
-            console.log('Customer Phone:', customerPhone);
-            console.log('Order Details:', cart);
-
-            // Clear the cart and update the display
-            localStorage.removeItem('cart');
-            updateCart([]);
-
-            // You may want to show a success message or redirect to a confirmation page
-            alert('Order placed successfully!');
+            // Handle order submission logic here
+            // You can retrieve customer details and cart items for further processing
+            alert('Order submitted successfully!');
         }
     </script>
 </body>
