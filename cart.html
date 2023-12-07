@@ -165,16 +165,17 @@
         }
 
         function getPriceByTypeAndSize(cakeType, cakeSize) {
-            // Prices are hardcoded here; you might want to implement a more dynamic pricing system
-            var basePrices = {
-                'chocCake': 20,
-                'xmasCake': 15,
-                'christeningCake': 22,
-                'weddingCake': 30
-            };
+    // Prices are hardcoded here; you might want to implement a more dynamic pricing system
+    var basePrices = {
+        'chocCake': { '20': 20, '35': 35, '50': 50 },
+        'xmasCake': { '15': 15, '20': 20, '28': 28 },
+        'christeningCake': { '22': 22, '38': 38, '52': 52 },
+        'weddingCake': { '30': 30, '45': 45, '60': 60 }
+    };
 
-            return basePrices[cakeType] || 0;
-        }
+    return basePrices[cakeType]?.[cakeSize] || 0;
+}
+
 
         function updateTotal() {
             var cart = JSON.parse(localStorage.getItem('cart')) || [];
