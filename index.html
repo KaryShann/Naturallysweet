@@ -1,5 +1,7 @@
 <!--Ruth Woods X23174382, sources, google, youtube, NCI notes,Images https://unsplash.com/s/photos/cakes-->
 
+<!--Ruth Woods X23174382, sources, google, youtube, NCI notes,Images https://unsplash.com/s/photos/cakes-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +16,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="http://www.naturallysweet.com">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"><!-- Custom CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="style.css" rel="stylesheet">
 </head>
@@ -36,8 +39,7 @@
                         <li class="list-inline-item"><a href="makecake.html"><i class="fa-solid fa-wand-magic-sparkles"></i> Make your cake</a></li>
                         <li class="list-inline-item"><a href="howplay.html"><i class="fa-solid fa-kitchen-set"></i> How to Play</a></li>
                         <li class="list-inline-item"><a href="game.html"><i class="fa-solid fa-burst"></i> Game</a></li>
-                        <li class="list-inline-item"><a href="cart.html"><i class="fa-solid fa-bag-shopping fa-beat"></i> cart</a></li>
-                        
+                        <li class="list-inline-item"><a href="cart.html"><i class="fa-solid fa-bag-shopping fa-beat"></i> Cart</a></li>
                     </ul>
                 </nav>
             </div>
@@ -45,9 +47,8 @@
     </div>
 </header>
 
-
-    <main>
-        <!-- Main Content Section -->
+<main>
+    <!-- Main Content Section -->
     <section class="main-content py-5">
         <div class="container">
             <div class="welcome-text-container">
@@ -56,6 +57,7 @@
             </div>
 
             <div class="row mt-4">
+                <!-- Cake 1 -->
                 <div class="col-md-3">
                     <div class="card">
                         <img src="images/chocCake.jpg" alt="Cake 1" class="card-img-top img-fluid squ">
@@ -63,20 +65,20 @@
                             <p class="card-text">Classic Celebration Cake</p>
                             <p class="card-text"><strong>Description:</strong> A timeless classic, perfect for any celebration.</p>
                             <p class="card-text"><strong>Sizes:</strong>
-    <select class="form-select" aria-label="Pick a size" id="cake1">
-        <option value="20">Small</option>
-        <option value="35">Medium</option>
-        <option value="50">Large</option>
-    </select>
-</p>
-<p class="card-text"><strong>Prices:</strong> &euro;<span id="cake1-price"></span></p>
-
+                                <select class="form-select" aria-label="Pick a size" id="cake1">
+                                    <option value="small">Small</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="large">Large</option>
+                                </select>
+                            </p>
+                            <p class="card-text"><strong>Prices:</strong> &euro;<span id="cake1-price">20.00</span></p>
                             <p class="card-text"><strong>Details:</strong> Rich chocolate flavor, moist layers, and elegant decoration.</p>
-                            <a class="btn btn-primary" onclick="alert('Cart: chocCake')">Add to Cart</a>
+                            <!-- Use onclick to call the addToCart function with cake details -->
+                            <a class="btn btn-primary" onclick="addToCart('Classic Celebration Cake', document.getElementById('cake1').value, parseFloat(document.getElementById('cake1-price').textContent))">Add to Cart</a>
                         </div>
                     </div>
                 </div>
-        <!--Cake 1-->
+                <!-- Cake 2 -->
                 <div class="col-md-3">
                     <div class="card">
                         <img src="images/xmasCake.jpg" alt="Cake 2" class="card-img-top img-fluid squ card-img-fixed-height">
@@ -85,14 +87,15 @@
                             <p class="card-text"><strong>Description:</strong> Spread holiday cheer with this festive cake.</p>
                             <p class="card-text"><strong>Sizes:</strong>
                                 <select class="form-select" aria-label="Pick a size" id="cake2">
-                                    <option value="15">Small</option>
-                                    <option selected value="20">Medium</option>
-                                    <option value="28">Large</option>
+                                    <option value="small">Small</option>
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="large">Large</option>
                                 </select>
                             </p>
-                            <p class="card-text"><strong>Prices:</strong> &euro;<span id="cake2-price"></span></p>
-                            <p class="card-text"><strong>Details:</strong> Seasonal flavors, colorful decoration, and joy in every bite.<br></p>
-                            <a class="btn btn-primary" onclick="alert('Cart: xmasCake')">Add to Cart</a>
+                            <p class="card-text"><strong>Prices:</strong> &euro;<span id="cake2-price">25.00</span></p>
+                            <p class="card-text"><strong>Details:</strong> Seasonal flavors, colorful decoration, and joy in every bite.</p>
+                            <!-- Use onclick to call the addToCart function with cake details -->
+                            <a class="btn btn-primary" onclick="addToCart('Festive Holiday Cake', document.getElementById('cake2').value, parseFloat(document.getElementById('cake2-price').textContent))">Add to Cart</a>
                         </div>
                     </div>
                 </div>
@@ -104,16 +107,16 @@
                             <p class="card-text">Elegant Wedding Cake</p>
                             <p class="card-text"><strong>Description:</strong> Make your wedding day extra special with this cake.</p>
                             <p class="card-text"><strong>Sizes:</strong>
-    <select class="form-select" aria-label="Pick a size" id="cake3">
-        <option value="30">Small</option>
-        <option value="45">Medium</option>
-        <option value="60">Large</option>
-    </select>
-</p>
-<p class="card-text"><strong>Prices:</strong> &euro;<span id="cake3-price"></span></p>
-
+                                <select class="form-select" aria-label="Pick a size" id="cake3">
+                                    <option value="small">Small</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="large">Large</option>
+                                </select>
+                            </p>
+                            <p class="card-text"><strong>Prices:</strong> &euro;<span id="cake3-price">30.00</span></p>
                             <p class="card-text"><strong>Details:</strong> Tiers, floral decoration, and a taste of sophistication.</p>
-                            <a class="btn btn-primary" onclick="alert('Cart: weddingCake')">Add to Cart</a>
+                            <!-- Use onclick to call the addToCart function with cake details -->
+                            <a class="btn btn-primary" onclick="addToCart('Elegant Wedding Cake', document.getElementById('cake3').value, parseFloat(document.getElementById('cake3-price').textContent))">Add to Cart</a>
                         </div>
                     </div>
                 </div>
@@ -125,57 +128,64 @@
                             <p class="card-text">Joyful Christening Cake</p>
                             <p class="card-text"><strong>Description:</strong> Celebrate the joy of christening with this delightful cake.</p>
                             <p class="card-text"><strong>Sizes:</strong>
-    <select class="form-select" aria-label="Pick a size" id="cake4">
-        <option value="22">Small</option>
-        <option value="38">Medium</option>
-        <option value="52">Large</option>
-    </select>
-</p>
-<p class="card-text"><strong>Prices:</strong> &euro;<span id="cake4-price"></span></p>
-
+                                <select class="form-select" aria-label="Pick a size" id="cake4">
+                                    <option value="small">Small</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="large">Large</option>
+                                </select>
+                            </p>
+                            <p class="card-text"><strong>Prices:</strong> &euro;<span id="cake4-price">22.00</span></p>
                             <p class="card-text"><strong>Details:</strong> Light and fluffy layers, perfect for a joyous occasion.</p>
-                            <button class="btn btn-primary" onclick="alert('Cart: christeningCake')">Add to Cart</button>
+                            <!-- Use onclick to call the addToCart function with cake details -->
+                            <button class="btn btn-primary" onclick="addToCart('Joyful Christening Cake', document.getElementById('cake4').value, parseFloat(document.getElementById('cake4-price').textContent))">Add to Cart</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    </main>
+</main>
 
-    <footer class="footer mt-5 py-3 bg-light">
-        <div class="container text-center">
-            <span class="text-muted">© 2023 Naturally Sweet</span>
-        </div>
-    </footer>
+<footer class="footer mt-5 py-3 bg-light">
+    <div class="container text-center">
+        <span class="text-muted">© 2023 Naturally Sweet</span>
+    </div>
+</footer>
+
 <script>
+    // Initialize the cart as an empty array
+    var cart = [];
 
-// This function updates the price text based on the selected value of the select element
-function updatePriceText(selectElement) {
-    var priceElement = document.getElementById(selectElement.id + '-price');
-    if (priceElement) {
-        priceElement.textContent = selectElement.value;
-    } // END if
-} // END updatePriceText
+    // Function to add an item to the cart
+    function addToCart(cakeType, cakeSize, cakePrice) {
+        // Create an object representing the cake
+        var cake = {
+            type: cakeType,
+            size: cakeSize,
+            price: cakePrice
+        };
 
-// Adding event listeners to all select elements
-document.querySelectorAll('select')
-.forEach(function(selectElement) {
-    // Initialize with the current value
-    updatePriceText(selectElement);
+        // Add the cake to the cart array
+        cart.push(cake);
 
-    // Update whenever the selection changes
-    selectElement.addEventListener('change', function() {
-        updatePriceText(selectElement);
-    });
-}); // END forEach
+        // Optionally, update the UI to reflect the items in the cart
+        updateCartUI();
 
+        // Alert or perform other actions as needed
+        alert('Added to Cart: ' + cakeType);
+    }
 
+    // Function to update the UI with cart information
+    function updateCartUI() {
+        // Here you can update the UI with the items in the cart
+        // For example, you might update a cart icon or display the number of items in the cart
+    }
 </script>
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </body>
 </html>
