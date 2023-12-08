@@ -71,8 +71,7 @@
                         <!-- Customer Name -->
                         <div class="form-group">
                             <label for="cakeMessage">Message on Cake (max 20 letters)</label>
-                            <input type="text" class="form-control" id="cakeMessage" placeholder="Enter your message"
-                                maxlength="21" onchange="validateMessageLength()"> <!-- onblur is a JavaScript event, which is triggered when the element loses focus, this function checks if the message exceeds the maximum length-->
+                            <input type="text" class="form-control" id="cakeMessage" placeholder="Enter your message" onchange="validateMessageLength()"> <!-- onblur is a JavaScript event, which is triggered when the element loses focus, this function checks if the message exceeds the maximum length-->
                             <div id="errorAlert" class="invalid-feedback">Message cannot exceed 20 letters.</div>  <!-- is a Bootstrap class, which display the message when the customer exceeds the maximum length-->
                         </div>
 
