@@ -1,26 +1,20 @@
-<!--Karina Shannon X23216760-->
+/* Karina Shannon X23216760 */
 
 
-var gameContainer = document.getElementById('game-container');
-var timerElement = document.getElementById('timer');
+var gameContainer = document.getElementById('game-container'); /*sets the gameContainer variable to the element with the id "game-container". */ 
+var timerElement = document.getElementById('timer'); /*sets the timerElement variable to the element with the id "timer". */
 
-var score = 0;
-var timeLeft = 20;
-var gameActive = true;
-var cakeSpeed = 2;
-/* defines a function called updateTimer that 
-is responsible for updating a timer element 
+var score = 0; /*sets the score variable to 0. tracks the score of the player. */
+var timeLeft = 20; /*sets the timeLeft variable to 20. counts down from 20 to 0. */
+var gameActive = true; /*sets the gameActive variable to true. a boolean value that indicates whether the game is active or not. */
+var cakeSpeed = 2; /*sets the cakeSpeed variable to 2. determines the speed of the cakes. */
+/* defines a function called updateTimer that is responsible for updating a timer element 
 on a web page. 
-If the timeLeft variable is less than 0, 
-the function stops two intervals, sets a 
-flag gameActive to false, updates the timer 
-element text to "Shop closed", adds a CSS 
-class to the timer element, updates the 
-score element, and then returns. 
-Otherwise, it updates the timer element 
-with the current value of timeLeft, 
-decreases timeLeft by 0.1, and increases 
-the cakeSpeed variable by a small factor. */
+If the timeLeft variable is less than 0, the function stops two intervals, sets a 
+flag gameActive to false, updates the timer element text to "Shop closed", adds a CSS 
+class to the timer element, updates you scored element, and then returns. 
+Otherwise, it updates the timer element with the current value of timeLeft, 
+decreases timeLeft by 0.1, and increases the cakeSpeed variable by a small factor. */
 function updateTimer() {
     if (timeLeft < 0) {
         clearInterval(timerInterval);
@@ -42,14 +36,10 @@ var cakeImages = [
     '005-cake-1.png', '006-cake-2.png', '007-roll-cake-1.png', '008-cake-3.png',
     '009-cake-4.png', '010-cake-5.png'
 ];
-/* That returns a random cake image URL 
-from an array called cakeImages. 
-The function generates a random index 
-using Math.random() and Math.floor(), 
-and then uses that index to select a 
-cake image from the array. 
-The function returns the URL of 
-the selected cake image. */
+/* That returns a random cake image URL from an array called cakeImages. 
+The function generates a random index using Math.random() and Math.floor(), 
+and then uses that index to select a cake image from the array. 
+The function returns the URL of the selected cake image. */
 function getRandomCakeImage() {
     var index = Math.floor(Math.random() * cakeImages.length);
     return `gamefiles/flaticon/${cakeImages[index]}`;
@@ -80,11 +70,9 @@ Otherwise, it updates the position of the cake element.
 When the cake element is clicked, the function increments 
 the score, updates the score display, stops the interval, 
 changes the cake's animation and background image to an 
-explosion effect, and removes the cake element after a delay.
+explosion effect, and removes the cake element after a delay. */
 
-Overall, this code snippet appears to be part of a game 
-that spawns cakes and handles their movement and interaction 
-with the player. */
+/*This function is responsible for creating and animating cake elements. It is set to run every 2000 milliseconds (2 seconds)*/
 function spawnCake() {
     var cake = document.createElement('div');
     cake.classList.add('cake');

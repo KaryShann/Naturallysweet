@@ -179,7 +179,21 @@
                 </div>
                 <div class="col-md-6"> <!-- col-md-6 is a Bootstrap class that sets the width of the column to 6 columns -->
                     <h2>Your Selection</h2>
-                    <div id="selectionDetails"/>
+                    <div id="selectionDetails">
+                        <div class="icing" style="width: 200px;height: 20px;background-color: red;margin: 0 auto;border-radius: 10px 10px 0 0;">
+                            <div class="icing" style="width: 10px;height: 30px;background-color: red;position: relative;left: 20px;top: 11px;border-radius: 5px;"></div>
+                            <div class="icing" style="width: 20px;height: 30px;background-color: red;position: relative;left: 120px;top: -18px;border-radius: 10px;"></div>
+                        </div> <!-- Top Icing Layer -->
+                        <div class="sponge" style="width: 200px; height: 50px; background-color: #8B4513; margin: 0 auto;"></div> <!-- Top Cake Layer -->
+                        <div id="layer2">
+                        <div class="icing" style="width: 200px; height: 20px; background-color: #FFFDD0; margin: 0 auto;"></div> <!-- Middle Icing Layer -->
+                        <div class="sponge" style="width: 200px; height: 50px; background-color: #8B4513; margin: 0 auto;"></div> <!-- Middle Cake Layer -->
+                       </div><div id="layer1" style="display:none">
+                        <div class="icing" style="width: 200px; height: 20px; background-color: #FFFDD0; margin: 0 auto;"></div> <!-- Bottom Icing Layer -->
+                        <div class="sponge" style="width: 200px; height: 50px; background-color: #8B4513; margin: 0 auto; border-radius: 0 0 10px 10px;"></div> <!-- Bottom Cake Layer -->
+                       </div>
+                        <!-- Drip -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -195,6 +209,68 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> <!-- jQuery library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> <!-- Popper.js library -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> <!-- Bootstrap JS library -->
+<script>
+    // Function to update sponge color based on cake flavor
+    function updateSpongeColor() {
+        var flavor = document.getElementById('cakeFlavor').value;
+        var spongeElements = document.getElementsByClassName('sponge');
+        for (var i = 0; i < spongeElements.length; i++) {
+            switch(flavor) {
+                case 'Vanilla':
+                    spongeElements[i].style.backgroundColor = '#FFFACD'; // LemonChiffon color for Vanilla
+                    break;
+                case 'Chocolate':
+                    spongeElements[i].style.backgroundColor = '#D2691E'; // Chocolate color
+                    break;
+                case 'Strawberry':
+                    spongeElements[i].style.backgroundColor = '#FFC0CB'; // LightPink color for Strawberry
+                    break;
+                case 'Lemon':
+                    spongeElements[i].style.backgroundColor = '#FFF44F'; // LemonYellow color
+                    break;
+                // Add more cases for different flavors as needed
+                default:
+                    spongeElements[i].style.backgroundColor = 'white'; // Default color
+            }
+        }
+    }
+
+    // Function to update icing color based on frosting type
+    function updateIcingColor() {
+        var type = document.getElementById('frostingType').value;
+        var icingElements = document.getElementsByClassName('icing');
+        for (var i = 0; i < icingElements.length; i++) {
+            switch(type) {
+                case 'Buttercream Frosting':
+                    icingElements[i].style.backgroundColor = '#F0EAD6'; // Cream color for Buttercream
+                    break;
+                case 'Cream Cheese Frosting':
+                    icingElements[i].style.backgroundColor = '#FFDAB9'; // PeachPuff color for Cream Cheese
+                    break;
+                case 'Royal Icing':
+                    icingElements[i].style.backgroundColor = '#E6E6FA'; // Lavender color for Royal Icing
+                    break;
+                case 'Ganache':
+                    icingElements[i].style.backgroundColor = '#8B4513'; // SaddleBrown color for Ganache
+                    break;
+                // Add more cases for different frosting types as needed
+                default:
+                    icingElements[i].style.backgroundColor = 'pink'; // Default color
+            }
+        }
+    }
+
+    // Add event listeners for cake flavor and frosting type changes
+    document.getElementById('cakeFlavor').addEventListener('change', updateSpongeColor);
+    document.getElementById('frostingType').addEventListener('change', updateIcingColor);
+
+    // Initial color update
+    updateSpongeColor();
+    updateIcingColor();
+
+</script>
+
+
 
     <script>
         const prices = {
@@ -238,21 +314,16 @@
         // JavaScript function to update the cake image based on the size selected
         function updateCakeImage() {
             var size = document.getElementById('cakeSize').value;
-            var image = document.getElementById('cakeImage');
-
+            var layer1 = document.getElementById('layer1')
+            var layer2 = document.getElementById('layer2')
+            layer1.style.display = 'block';
+            layer2.style.display = 'block';
             // Logic for changing the image source based on the selected size
             switch (size) {
                 case '1':
-                    image.src = 'chocCake.jpg'; // Replace with actual path
-                    break;
+                    layer1.style.display = 'none';
                 case '2':
-                    image.src = 'birthdayCake.jpg'; // Replace with actual path
-                    break;
-                case '3':
-                    image.src = 'weddingCake.jpg'; // Replace with actual path
-                    break;
-                default:
-                    image.src = 'christeningCake.jpg'; // Replace with actual path
+                    layer2.style.display = 'none';
             }
         }
 
@@ -264,6 +335,7 @@
         var frosting = document.getElementById("frostingType").value;
         var shape = document.querySelector('input[name="cakeShape"]:checked').value;
         var size = document.getElementById("cakeSize").value;
+        var size = size == "1" ? "Small" : size == "2" ? "Medium" : "Large";
         var date = document.getElementById("pickupDate").value;
         var instructions = document.getElementById("specialInstructions").value;
         var image = document.getElementById("cakeImage");
