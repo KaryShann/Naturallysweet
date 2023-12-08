@@ -72,15 +72,8 @@
                         <div class="form-group">
                             <label for="cakeMessage">Message on Cake (max 20 letters)</label>
                             <input type="text" class="form-control" id="cakeMessage" placeholder="Enter your message"
-                                maxlength="20" onblur="validateMessageLength()"> <!-- onblur is a JavaScript event, which is triggered when the element loses focus, this function checks if the message exceeds the maximum length-->
-                            <div class="invalid-feedback">Message cannot exceed 20 letters.</div>  <!-- is a Bootstrap class, which display the message when the customer exceeds the maximum length-->
-                        </div>
-
-                        <!-- Error Alert, initially hidden -->
-                        <div class="alert alert-danger alert-dismissible fade show" id="errorAlert"
-                            style="display:none;"> <!-- is a Bootstrap class, which displays the alert when the customer exceeds the maximum length-->
-                            <strong>Error!</strong> Your message cannot exceed 20 letters.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button> 
+                                maxlength="21" onchange="validateMessageLength()"> <!-- onblur is a JavaScript event, which is triggered when the element loses focus, this function checks if the message exceeds the maximum length-->
+                            <div id="errorAlert" class="invalid-feedback">Message cannot exceed 20 letters.</div>  <!-- is a Bootstrap class, which display the message when the customer exceeds the maximum length-->
                         </div>
 
                         <!-- Cake Flavor -->
@@ -228,7 +221,7 @@
                 case 'Lemon':
                     spongeElements[i].style.backgroundColor = '#FFF44F'; // LemonYellow color
                     break;
-                // Add more cases for different flavors as needed
+                
                 default:
                     spongeElements[i].style.backgroundColor = 'white'; // Default color
             }
@@ -253,7 +246,7 @@
                 case 'Ganache':
                     icingElements[i].style.backgroundColor = '#8B4513'; // SaddleBrown color for Ganache
                     break;
-                // Add more cases for different frosting types as needed
+        
                 default:
                     icingElements[i].style.backgroundColor = 'pink'; // Default color
             }
@@ -299,7 +292,7 @@
         function validateMessageLength() {
             var messageInput = document.getElementById('cakeMessage');
             var errorAlert = document.getElementById('errorAlert');
-
+            console.log(messageInput)
             if (messageInput.value.length > 20) {
                 // Show the error alert if the length is exceeded
                 errorAlert.style.display = 'block';
